@@ -230,19 +230,19 @@ class GUI {
       pangolin::RegisterKeyPressCallback(' ', pangolin::SetVarFunctor<bool>("ui.Reset", true));
     }
 
-    pangolin::RegisterKeyPressCallback('p', [&]() { pause->Ref().Set(!pause->Get()); });
-    pangolin::RegisterKeyPressCallback('c', [&]() { drawColors->Ref().Set(!drawColors->Get()); });
-    pangolin::RegisterKeyPressCallback('l', [&]() { drawLabelColors->Ref().Set(!drawLabelColors->Get()); });
-    pangolin::RegisterKeyPressCallback('n', [&]() { drawNormals->Ref().Set(!drawNormals->Get()); });
-    pangolin::RegisterKeyPressCallback('m', [&]() { enableMultiModel->Ref().Set(!enableMultiModel->Get()); });
-    pangolin::RegisterKeyPressCallback('x', [&]() { drawFxaa->Ref().Set(!drawFxaa->Get()); });
-    pangolin::RegisterKeyPressCallback('f', [&]() { followPose->Ref().Set(!followPose->Get()); });
-    pangolin::RegisterKeyPressCallback('q', [&]() { savePoses->Ref().Set(true); });
-    pangolin::RegisterKeyPressCallback('w', [&]() { saveCloud->Ref().Set(true); });
-    pangolin::RegisterKeyPressCallback('e', [&]() { saveView->Ref().Set(true); });
-    pangolin::RegisterKeyPressCallback('g', [&]() { drawGlobalModel->Ref().Set(!drawGlobalModel->Get()); });
-    pangolin::RegisterKeyPressCallback('o', [&]() { drawObjectModels->Ref().Set(!drawObjectModels->Get()); });
-    pangolin::RegisterKeyPressCallback('b', [&]() { drawBoundingBoxes->Ref().Set(!drawBoundingBoxes->Get()); });
+    pangolin::RegisterKeyPressCallback('p', [&]() { pause->Ref().get()->Set(!pause->Get()); });
+    pangolin::RegisterKeyPressCallback('c', [&]() { drawColors->Ref().get()->Set(!drawColors->Get()); });
+    pangolin::RegisterKeyPressCallback('l', [&]() { drawLabelColors->Ref().get()->Set(!drawLabelColors->Get()); });
+    pangolin::RegisterKeyPressCallback('n', [&]() { drawNormals->Ref().get()->Set(!drawNormals->Get()); });
+    pangolin::RegisterKeyPressCallback('m', [&]() { enableMultiModel->Ref().get()->Set(!enableMultiModel->Get()); });
+    pangolin::RegisterKeyPressCallback('x', [&]() { drawFxaa->Ref().get()->Set(!drawFxaa->Get()); });
+    pangolin::RegisterKeyPressCallback('f', [&]() { followPose->Ref().get()->Set(!followPose->Get()); });
+    pangolin::RegisterKeyPressCallback('q', [&]() { savePoses->Ref().get()->Set(true); });
+    pangolin::RegisterKeyPressCallback('w', [&]() { saveCloud->Ref().get()->Set(true); });
+    pangolin::RegisterKeyPressCallback('e', [&]() { saveView->Ref().get()->Set(true); });
+    pangolin::RegisterKeyPressCallback('g', [&]() { drawGlobalModel->Ref().get()->Set(!drawGlobalModel->Get()); });
+    pangolin::RegisterKeyPressCallback('o', [&]() { drawObjectModels->Ref().get()->Set(!drawObjectModels->Get()); });
+    pangolin::RegisterKeyPressCallback('b', [&]() { drawBoundingBoxes->Ref().get()->Set(!drawBoundingBoxes->Get()); });
 #ifdef WITH_FREETYPE_GL_CPP
     textRenderer.init();
 #endif

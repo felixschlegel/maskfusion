@@ -12,7 +12,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}")
 ## External packages
 find_package(CUDA REQUIRED)
 find_package(SuiteSparse REQUIRED)
-find_package(OpenCV 3.1 REQUIRED)
+find_package(OpenCV 4.5.4 REQUIRED)
 find_package(OpenMP)
 find_package(PythonLibs)
 

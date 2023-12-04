@@ -22,7 +22,7 @@
 
 # Function that executes the clone command given as $1 iff repo does not exist yet. Otherwise pulls.
 # Only works if repository path ends with '.git'
-# Example: git_clone "git clone --branch 3.4.1 --depth=1 https://github.com/opencv/opencv.git"
+# Example: git_clone "git clone --branch 4.5.4 --depth=1 https://github.com/opencv/opencv.git"
 function git_clone(){
   repo_dir=`basename "$1" .git`
   git -C "$repo_dir" pull 2> /dev/null || eval "$1"
@@ -130,7 +130,7 @@ highlight "Setting up virtual python environment..."
 virtualenv python-environment
 source python-environment/bin/activate
 pip3 install pip --upgrade
-pip3 install tensorflow-gpu==1.8.0
+pip3 install tensorflow
 pip3 install scikit-image
 pip3 install keras
 pip3 install IPython
@@ -150,7 +150,7 @@ if [[ $* == *--build-dependencies* ]] ; then
   cd deps
 
   highlight "Building opencv..."
-  git_clone "git clone --branch 3.4.1 --depth=1 https://github.com/opencv/opencv.git"
+  git_clone "git clone --branch 4.5.4 --depth=1 https://github.com/opencv/opencv.git"
   cd opencv
   mkdir -p build
   cd build
@@ -260,7 +260,7 @@ if [[ $* == *--build-dependencies* ]] ; then
   # build gSLICr, see: http://www.robots.ox.ac.uk/~victor/gslicr/
   highlight "Building gslicr..."
   git_clone "git clone --depth=1 https://github.com/carlren/gSLICr.git"
-  cd gSLICr
+  cd gSLICr && find . -type f -exec sed -i "s/OPTIONS -gencode arch=compute_30,code=compute_30)/OPTIONS -gencode arch=compute_50,code=compute_50)/g" {} +
   git pull
   mkdir -p build
   cd build
