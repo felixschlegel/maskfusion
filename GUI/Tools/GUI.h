@@ -76,9 +76,6 @@ class GUI {
   {
     pangolin::Params windowParams;
 
-    windowParams.Set("SAMPLE_BUFFERS", 0);
-    windowParams.Set("SAMPLES", 0);
-
     pangolin::CreateWindowAndBind("Main", window_width, window_height, windowParams);
 
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);

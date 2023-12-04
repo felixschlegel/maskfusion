@@ -282,6 +282,7 @@ if [[ $* == *--build-dependencies* ]] ; then
   make install # Make sure to source the correct python environment first
   cd ../..
   cd Mask_RCNN
+  git apply ../../Mask_RCNN.patch # Fixes runtime errors
   mkdir -p data
   cd data
   wget --no-clobber https://github.com/matterport/Mask_RCNN/releases/download/v1.0/mask_rcnn_coco.h5

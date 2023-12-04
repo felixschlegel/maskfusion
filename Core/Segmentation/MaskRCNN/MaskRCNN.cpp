@@ -62,6 +62,8 @@ void MaskRCNN::initialise(){
 
 void* MaskRCNN::loadModule(){
     std::cout << " * Loading module..." << std::endl;
+    PyRun_SimpleString("import sys");
+    PyRun_SimpleString("sys.path.append(\"/home/felixm_schlegel/bachelors-thesis/code/deps/maskfusion/build/GUI\")"); // TODO: relative path
     pModule = PyImport_ImportModule("MaskRCNN");
     if(pModule == NULL) {
         if(PyErr_Occurred()) {
